@@ -116,6 +116,7 @@
                 </executions>
             </plugin>
         </plugins>
+        <finalName>gitaction-test</finalName>
     </build>
 
 </project>
