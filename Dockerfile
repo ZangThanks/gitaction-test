@@ -14,6 +14,6 @@ FROM eclipse-temurin:21-jdk-jammy
 
 EXPOSE 8080
 
-COPY --from=build /app/target/gitaction-test.war app.war
+COPY --from=build /app/target/gitaction-test.war /app.war
 
 ENTRYPOINT ["java","-jar","/app.war"]
