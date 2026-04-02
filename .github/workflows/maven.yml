@@ -54,6 +54,6 @@ jobs:
       uses: docker/build-push-action@v7
       with:
         context: .
-        file: ./Dockerfile.ci
+        file: ./Dockerfile
         push: true
         tags: docker.io/${{ secrets.DOCKERHUB_USERNAME }}/gitaction-test:latest
