@@ -15,6 +15,11 @@ public class GitactionTestApplication {
         return "Welcome to Gitaction Test";
     }
 
+    @GetMapping("/goodbye")
+    public String goodbye() {
+        return "Goodbye to Gitaction Test";
+    }
+
     public static void main(String[] args) {
         SpringApplication.run(GitactionTestApplication.class, args);
     }

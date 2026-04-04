@@ -19,7 +19,7 @@ permissions:
 
 jobs:
   build:
-
+    name: Build
     runs-on: ubuntu-latest
     permissions:
       # Required for dependency snapshot submission API.
