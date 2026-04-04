@@ -17,7 +17,7 @@ public class GitactionTestApplication {
 
     @GetMapping("/goodbye")
     public String goodbye() {
-        return "Goodbye to Gitaction Test";
+        return "Goodbye to Gitaction Test 123";
     }
 
     public static void main(String[] args) {
