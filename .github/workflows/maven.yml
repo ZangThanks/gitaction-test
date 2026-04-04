@@ -57,3 +57,25 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: docker.io/${{ secrets.DOCKERHUB_USERNAME }}/gitaction-test:latest
+
+  deploy:
+    name: Deploy Service
+    runs-on: self-hosted
+    needs: build
+
+    steps:
+      - name: Login Docker Hub
+        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Pull latest image
+        run: docker pull docker.io/${{ secrets.DOCKERHUB_USERNAME }}/gitaction-test:latest
+
+      - name: Stop old container
+        run: docker stop my-app || true
+
+      - name: Remove old container
+        run: docker rm my-app || true
+
+      - name: Run new container
+        run: |
+          docker run -d --name my-app -p 8080:8080 --restart always docker.io/${{ secrets.DOCKERHUB_USERNAME }}/gitaction-test:latest
